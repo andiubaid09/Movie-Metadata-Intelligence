@@ -1,195 +1,237 @@
-# 🎬 Movie Recommendation System
+# 🎬 Movie Recommendation & Metadata Intelligence
 
-Proyek ini merupakan eksplorasi dan pengembangan **sistem rekomendasi film** menggunakan berbagai pendekatan, mulai dari metode berbasis aturan sederhana hingga machine learning dan deep learning.
+Proyek Machine Learning yang mengeksplorasi sistem rekomendasi film, prediksi pendapatan, klasifikasi popularitas, dan segmentasi film menggunakan metadata film.
 
-Proyek dikembangkan secara bertahap untuk memahami bagaimana sistem rekomendasi berkembang dari pendekatan sederhana menjadi sistem retrieval dan ranking yang lebih terstruktur.
+## 🎯 Gambaran Umum Proyek
 
-Setiap pendekatan diimplementasikan dan dianalisis secara terpisah agar karakteristik, kelebihan, keterbatasan, serta hasil eksperimennya dapat dipelajari dan dibandingkan.
+Proyek ini bertujuan mengeksplorasi penerapan berbagai teknik Machine Learning pada metadata film untuk membangun sistem rekomendasi dan model prediktif.
 
-## 🎯 Latar Belakang
+Dengan menggunakan satu dataset metadata film yang berisi sekitar 45.000 data film, proyek ini mengembangkan beberapa pendekatan, mulai dari rekomendasi berbasis popularitas hingga Content-Based Filtering, supervised learning, dan unsupervised learning.
 
-Dengan katalog film yang terdiri dari puluhan ribu judul, pengguna dapat mengalami kesulitan menemukan film yang sesuai tanpa menelusuri katalog secara manual.
+Setiap pendekatan dikembangkan dan dievaluasi secara terpisah untuk memahami metodologi, asumsi, kelebihan, keterbatasan, serta penerapannya.
 
-Sistem rekomendasi membantu mempersempit pilihan dengan menyarankan film berdasarkan kriteria tertentu.
-
-Namun, setiap pendekatan memiliki karakteristik berbeda. Popularity-Based Recommendation menggunakan popularitas sebagai dasar rekomendasi, Content-Based Recommendation membandingkan karakteristik film, sedangkan Collaborative Filtering memanfaatkan pola interaksi pengguna.
-
-Proyek ini mengeksplorasi berbagai pendekatan tersebut untuk memahami cara kerja, trade-off, dan kemungkinan pengembangannya.
+Fokus proyek tidak hanya pada pembangunan model, tetapi juga pada proses preprocessing, evaluasi yang sesuai, analisis hasil eksperimen, dan dokumentasi keputusan teknis.
 
 ## 🎯 Tujuan Proyek
 
-* Memahami proses pengembangan sistem rekomendasi dari data hingga rekomendasi.
-* Mengeksplorasi berbagai algoritma recommendation system.
-* Memahami perbedaan Content-Based Filtering, Collaborative Filtering, Retrieval, dan Learning-to-Rank.
-* Menerapkan pendekatan machine learning dan deep learning secara bertahap.
-* Mengevaluasi hasil eksperimen berdasarkan karakteristik masing-masing metode.
-* Mempelajari pertimbangan relevansi, personalisasi, kompleksitas, dan kebutuhan komputasi.
+- Membangun sistem rekomendasi film berbasis popularitas sebagai baseline.
+- Mengimplementasikan Content-Based Recommendation menggunakan TF-IDF dan cosine similarity.
+- Memprediksi pendapatan film menggunakan metadata yang direncanakan tersedia sebelum film dirilis.
+- Mengklasifikasikan film ke dalam kategori popularitas menggunakan supervised learning.
+- Mengelompokkan film berdasarkan karakteristik metadata menggunakan unsupervised learning.
+- Mengeksplorasi pendekatan hybrid content-based recommendation.
+- Membandingkan performa model menggunakan metrik evaluasi yang sesuai.
+- Mendokumentasikan proses preprocessing, eksperimen, hasil, dan keterbatasan setiap pendekatan.
 
 ## 📊 Dataset
 
-Proyek menggunakan dataset metadata film dengan sekitar **45.000 judul film**.
+**Nama dataset:** `movies_metadata.csv`
 
-Informasi yang tersedia mencakup judul, genre, overview, popularitas, rating, informasi perilisan, dan metadata lainnya.
+Dataset berisi sekitar 45.466 data film dengan 24 kolom yang mencakup informasi film, metadata produksi, pendapatan, dan metrik popularitas.
 
-Fitur yang digunakan dapat berbeda pada setiap pendekatan. Dataset mentah tidak disertakan langsung dalam repository; lihat dokumentasi masing-masing notebook untuk informasi tentang data yang digunakan.
+Beberapa fitur yang tersedia antara lain:
 
-## 🧠 Pendekatan yang Dieksplorasi
+| Fitur | Deskripsi |
+|---|---|
+| `title` | Judul film |
+| `genres` | Genre film |
+| `overview` | Sinopsis film |
+| `budget` | Anggaran produksi film |
+| `revenue` | Pendapatan film yang tercatat |
+| `runtime` | Durasi film |
+| `release_date` | Tanggal rilis film |
+| `original_language` | Bahasa asli film |
+| `production_companies` | Metadata perusahaan produksi |
+| `production_countries` | Metadata negara produksi |
+| `popularity` | Skor popularitas yang tercatat |
+| `vote_average` | Rata-rata penilaian pengguna |
+| `vote_count` | Jumlah penilaian yang tercatat |
 
-| No. | Pendekatan                                 | Teknologi          | Status                                   |
-| --- | ------------------------------------------ | ------------------ | ---------------------------------------- |
-| 01  | Popularity-Based Recommendation            | Pandas             | ✅ Selesai                                |
-| 02  | Content-Based — TF-IDF + Cosine Similarity | Scikit-learn       | ✅ Implementasi dan evaluasi awal selesai |
-| 03  | Collaborative Filtering                    | TBD                | 🚧 Direncanakan                          |
-| 04  | Neural Collaborative Filtering             | PyTorch            | 🚧 Direncanakan                          |
-| 05  | Two-Tower / Dual Encoder                   | PyTorch            | 🚧 Direncanakan                          |
-| 06  | Learning-to-Rank                           | PyTorch / LightGBM | 🚧 Direncanakan                          |
+Dataset memiliki nilai kosong, tipe data yang tidak konsisten, dan beberapa kolom metadata dengan struktur yang memerlukan preprocessing.
 
-Status akan diperbarui berdasarkan perkembangan implementasi dan eksperimen aktual.
+### Kebijakan Penggunaan Data
 
-## 🔎 Perkembangan Pendekatan
+- Menggunakan `movies_metadata.csv` sebagai satu-satunya dataset dalam proyek.
+- Mempertahankan dataset asli dan melakukan preprocessing secara terpisah.
+- Memeriksa nilai kosong, nol, dan tidak valid sebelum menentukan metode penanganannya.
+- Tidak menggunakan informasi pascarilis sebagai fitur untuk eksperimen prediksi sebelum film dirilis.
+- Mendokumentasikan asumsi, keputusan preprocessing, dan keterbatasan data.
+
+## 🧠 Roadmap Proyek
+
+| No. | Nama Notebook | Pendekatan | Status |
+|---|---|---|---|
+| 01 | `01_Popularity_Based_Movie_Recommender.ipynb` | Rekomendasi Berbasis Popularitas | ✅ Implementasi selesai |
+| 02 | `02_Content_Based_Movie_Recommender_TFIDF.ipynb` | Content-Based Recommendation dengan TF-IDF | ✅ Implementasi selesai, pengujian kualitatif awal selesai |
+| 03 | `03_Movie_Revenue_Prediction.ipynb` | Prediksi Pendapatan Film | 🚧 Direncanakan |
+| 04 | `04_Movie_Popularity_Classification.ipynb` | Klasifikasi Popularitas Film | 🚧 Direncanakan |
+| 05 | `05_Movie_Clustering_and_Segmentation.ipynb` | Clustering dan Segmentasi Film | 🚧 Direncanakan |
+| 06 | `06_Hybrid_Content_Based_Recommendation.ipynb` | Hybrid Content-Based Recommendation | 🚧 Direncanakan |
+
+Status akan diperbarui sesuai perkembangan implementasi dan hasil eksperimen yang benar-benar telah dilakukan.
+
+## 🔎 Metodologi
+
+### 01. Popularity-Based Movie Recommendation
+
+Membangun baseline sistem rekomendasi dengan menggunakan informasi popularitas film yang tersedia.
+
+Pendekatan ini menjadi titik awal untuk memahami sistem rekomendasi sebelum mengembangkan metode yang lebih kompleks.
+
+### 02. Content-Based Movie Recommendation
+
+Menggunakan TF-IDF dan cosine similarity untuk mengidentifikasi film yang memiliki kemiripan berdasarkan metadata dan deskripsi teks.
+
+Fitur yang dieksplorasi mencakup genre, sinopsis, tagline, dan informasi koleksi film.
+
+Pengujian kualitatif awal digunakan untuk memeriksa relevansi rekomendasi. Evaluasi kuantitatif akan dilakukan jika tersedia protokol evaluasi dan informasi relevansi yang sesuai.
+
+### 03. Movie Revenue Prediction
+
+Mengeksplorasi kemampuan model Machine Learning dalam memprediksi pendapatan film berdasarkan informasi yang direncanakan tersedia sebelum film dirilis.
+
+Kandidat fitur meliputi:
+
+- Anggaran produksi (`budget`).
+- Genre film (`genres`).
+- Bahasa asli (`original_language`).
+- Bulan dan tahun rilis (`release_date`).
+- Durasi film (`runtime`), jika sudah diketahui sebelum rilis.
+- Metadata perusahaan dan negara produksi yang relevan.
+
+Evaluasi menggunakan MAE, RMSE, dan R² dengan mempertimbangkan distribusi pendapatan film yang cenderung tidak merata.
+
+Eksperimen juga akan mempertimbangkan transformasi target jika diperlukan dan membedakan metrik pada skala transformasi dengan metrik pada skala pendapatan asli.
+
+### 04. Movie Popularity Classification
+
+Mengembangkan model klasifikasi biner untuk mengategorikan film menjadi dua kelas:
+
+- `0` — Tidak Populer (*Not Popular*).
+- `1` — Populer (*Popular*).
+
+Label dibuat berdasarkan skor `popularity` yang tercatat dalam dataset menggunakan ambang batas yang terdokumentasi, misalnya median dari data training.
+
+Kandidat model meliputi:
+
+- Logistic Regression.
+- Decision Tree Classifier.
+- Random Forest Classifier.
+- HistGradientBoosting Classifier.
+
+Fitur prediktor dibatasi pada informasi yang direncanakan tersedia sebelum film dirilis.
+
+Skor `popularity` digunakan untuk membentuk label target, bukan sebagai fitur input. Informasi lain yang berpotensi baru tersedia setelah rilis, seperti statistik penilaian dan pendapatan aktual, juga tidak digunakan sebagai fitur prediktor dalam skenario ini.
+
+Evaluasi menggunakan accuracy, precision, recall, F1-score, dan confusion matrix.
+
+Kategori popularitas merupakan definisi operasional untuk eksperimen ini, bukan klasifikasi resmi dalam industri film.
+
+### 05. Movie Clustering and Segmentation
+
+Mengeksplorasi pengelompokan film berdasarkan karakteristik metadata dan representasi fitur yang sesuai.
+
+Metode yang dapat dipertimbangkan meliputi K-Means dan algoritma clustering lainnya sesuai dengan karakteristik data serta kebutuhan komputasi.
+
+Evaluasi dapat mencakup Silhouette Score, distribusi ukuran cluster, dan analisis kualitatif terhadap film-film dalam setiap kelompok.
+
+Cluster yang dihasilkan akan diperlakukan sebagai kelompok berdasarkan pola data, bukan kategori film yang bersifat mutlak.
+
+### 06. Hybrid Content-Based Recommendation
+
+Mengeksplorasi penggabungan kemiripan konten dengan sinyal tambahan yang berasal dari metadata untuk menghasilkan peringkat rekomendasi.
+
+Pendekatan hybrid akan dibandingkan dengan baseline content-based yang sudah ada apabila tersedia metode evaluasi yang sesuai.
+
+Notebook ini tidak akan diklaim sebagai implementasi Collaborative Filtering atau Learning-to-Rank terlatih karena dataset tidak memiliki riwayat interaksi pengguna-film maupun label relevansi eksplisit yang diperlukan untuk pendekatan tersebut.
+
+## 📈 Strategi Evaluasi
+
+Metrik evaluasi dipilih berdasarkan tujuan masing-masing eksperimen.
+
+| Tugas | Metrik Evaluasi |
+|---|---|
+| Prediksi pendapatan | MAE, RMSE, R² |
+| Klasifikasi popularitas | Accuracy, Precision, Recall, F1-score, Confusion Matrix |
+| Clustering film | Silhouette Score dan analisis kualitatif cluster |
+| Sistem rekomendasi | Precision@K, Recall@K, NDCG@K, atau metrik ranking lain jika informasi relevansi tersedia |
+
+Perbandingan model akan menggunakan pembagian data dan prosedur preprocessing yang konsisten jika sesuai dengan kebutuhan eksperimen.
+
+Hasil kuantitatif tidak akan dicantumkan sebelum eksperimen benar-benar dijalankan.
+
+## 🛠️ Teknologi yang Digunakan
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- SciPy
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
+- Google Colab
+
+Library tambahan dapat digunakan jika diperlukan oleh eksperimen tertentu.
+
+## 📁 Struktur Repository
 
 ```text
-Popularity-Based Recommendation
-              ↓
-Content-Based Recommendation
-              ↓
-Collaborative Filtering
-              ↓
-Neural Recommendation
-              ↓
-Candidate Retrieval
-              ↓
-Learning-to-Rank
-              ↓
-Future Improvements
-```
-
-Urutan ini merupakan jalur eksplorasi pembelajaran, bukan pernyataan bahwa pendekatan yang lebih kompleks selalu lebih baik.
-
-Fokus utama adalah memahami trade-off antara relevansi, personalisasi, kesederhanaan, kompleksitas model, dan kebutuhan komputasi.
-
-## 📈 Evaluasi dan Perbandingan
-
-Evaluasi dilakukan sesuai dengan tujuan dan karakteristik setiap pendekatan.
-
-Metrik yang dapat dipertimbangkan meliputi:
-
-* Precision@K
-* Recall@K
-* NDCG@K
-* Hit Rate@K
-* Mean Reciprocal Rank (MRR)
-* Coverage
-* Waktu inferensi
-* Penggunaan sumber daya
-
-Tidak semua metrik dapat diterapkan pada setiap metode. Metrik akan dipilih berdasarkan ketersediaan data relevansi dan tujuan evaluasi.
-
-### Perbandingan Pendekatan
-
-| Pendekatan                     | Hasil saat ini                    | Catatan                              |
-| ------------------------------ | --------------------------------- | ------------------------------------ |
-| Popularity-Based               | Implementasi selesai              | Baseline berbasis popularitas        |
-| TF-IDF Content-Based           | Pengujian kualitatif awal selesai | Belum dievaluasi dengan ground truth |
-| Collaborative Filtering        | Belum tersedia                    | Direncanakan                         |
-| Neural Collaborative Filtering | Belum tersedia                    | Direncanakan                         |
-| Two-Tower                      | Belum tersedia                    | Direncanakan                         |
-| Learning-to-Rank               | Belum tersedia                    | Direncanakan                         |
-
-Hasil kuantitatif akan dicantumkan setelah eksperimen dan evaluasi yang sesuai benar-benar dilakukan.
-
-## 📁 Struktur Proyek
-
-```text
-movie-recommendation-system/
-│
+movie-recommendation-metadata-intelligence/
 ├── data/
-│   └── movies_metadata.csv
-│
+│   └── raw/
+│       └── movies_metadata.csv
 ├── notebooks/
 │   ├── 01_Popularity_Based_Movie_Recommender.ipynb
 │   ├── 02_Content_Based_Movie_Recommender_TFIDF.ipynb
-│   ├── 03_Collaborative_Filtering_Recommender.ipynb
-│   ├── 04_Neural_Collaborative_Filtering_PyTorch.ipynb
-│   ├── 05_Two_Tower_Movie_Recommender_PyTorch.ipynb
-│   └── 06_Learning_to_Rank_Movie_Recommender.ipynb
-│
+│   ├── 03_Movie_Revenue_Prediction.ipynb
+│   ├── 04_Movie_Popularity_Classification.ipynb
+│   ├── 05_Movie_Clustering_and_Segmentation.ipynb
+│   └── 06_Hybrid_Content_Based_Recommendation.ipynb
 ├── docs/
 │   ├── 01_popularity_based.md
 │   ├── 02_tfidf_content_based.md
 │   ├── 02_content_based_deep_dive.md
-│   ├── 03_collaborative_filtering.md
-│   ├── 04_ncf_pytorch.md
-│   ├── 05_two_tower_pytorch.md
-│   └── 06_learning_to_rank.md
-│
+│   ├── 03_revenue_prediction.md
+│   ├── 04_movie_popularity_classification.md
+│   ├── 05_movie_clustering.md
+│   └── 06_hybrid_recommendation.md
 ├── src/
 │   ├── preprocessing.py
 │   ├── recommender.py
 │   └── evaluation.py
-│
 ├── models/
 ├── .gitignore
 └── README.md
 ```
 
-Struktur di atas merupakan struktur yang direncanakan. Pastikan nama file dan folder disesuaikan dengan isi repository yang benar-benar sudah dibuat. Folder atau file yang belum ada tidak perlu dibuat hanya demi menyesuaikan diagram ini.
+Struktur di atas merupakan struktur yang direncanakan. Folder dan file pendukung akan dibuat seiring dengan perkembangan implementasi.
 
-## 🛠️ Teknologi
+Dataset asli akan dipertahankan tanpa perubahan. Data hasil preprocessing dan artefak model, jika diperlukan, akan disimpan secara terpisah.
 
-Teknologi yang digunakan atau direncanakan untuk dieksplorasi:
+## ⚠️ Keterbatasan Proyek
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* SciPy
-* PyTorch
-* LightGBM
-* Jupyter Notebook / Google Colab
-
-Penggunaan library disesuaikan dengan kebutuhan masing-masing pendekatan.
-
-## 📚 Dokumentasi Model
-
-Setiap pendekatan memiliki dokumentasi tersendiri agar penjelasan teknis tidak menumpuk di README utama.
-
-| Pendekatan                     | Dokumentasi                                                                |
-| ------------------------------ | -------------------------------------------------------------------------- |
-| Popularity-Based               | [`docs/01_popularity_based.md`](docs/01_popularity_based.md)               |
-| TF-IDF Content-Based           | [`docs/02_tfidf_content_based.md`](docs/02_tfidf_content_based.md)         |
-| Content-Based Deep Dive        | [`docs/02_content_based_deep_dive.md`](docs/02_content_based_deep_dive.md) |
-| Collaborative Filtering        | [`docs/03_collaborative_filtering.md`](docs/03_collaborative_filtering.md) |
-| Neural Collaborative Filtering | [`docs/04_ncf_pytorch.md`](docs/04_ncf_pytorch.md)                         |
-| Two-Tower / Dual Encoder       | [`docs/05_two_tower_pytorch.md`](docs/05_two_tower_pytorch.md)             |
-| Learning-to-Rank               | [`docs/06_learning_to_rank.md`](docs/06_learning_to_rank.md)               |
-
-Dokumentasi pendekatan berikutnya akan dilengkapi seiring selesainya implementasi.
-
-## 🚀 Pengembangan Selanjutnya
-
-Rencana pengembangan meliputi:
-
-* Mengimplementasikan Collaborative Filtering.
-* Mengeksplorasi Neural Collaborative Filtering dan Two-Tower Recommendation.
-* Mengembangkan pipeline candidate retrieval dan ranking.
-* Mengevaluasi relevansi rekomendasi dengan metode yang sesuai.
-* Membandingkan hasil antarpendekatan.
-* Melakukan refactoring kode notebook menjadi modul yang dapat digunakan kembali.
-* Mengeksplorasi recommendation API dan deployment apabila implementasi inti telah memadai.
+- Dataset tidak memiliki riwayat interaksi pengguna-film.
+- Metadata saja mungkin tidak cukup untuk menjelaskan seluruh faktor yang memengaruhi pendapatan dan popularitas film.
+- Data yang kosong, tidak konsisten, atau tidak valid dapat memengaruhi hasil model.
+- Prediksi sebelum rilis bergantung pada ketersediaan setiap fitur pada waktu prediksi.
+- Label popularitas yang berasal dari skor historis tidak membuktikan bahwa model mampu memprediksi permintaan penonton di dunia nyata secara akurat.
+- Evaluasi kuantitatif sistem rekomendasi membutuhkan protokol evaluasi dan informasi relevansi yang sesuai.
 
 ## 📌 Status Proyek
 
-**Status: Aktif dikembangkan.**
+**Status: Aktif Dikembangkan**
 
-Popularity-Based Recommendation telah selesai diimplementasikan sebagai baseline. Content-Based Recommendation menggunakan TF-IDF dan cosine similarity juga telah diimplementasikan dan menjalani pengujian kualitatif awal.
+Notebook rekomendasi berbasis popularitas dan rekomendasi berbasis konten menggunakan TF-IDF telah diimplementasikan.
 
-Tahap berikutnya adalah memperkuat pemahaman dan dokumentasi hasil eksperimen, kemudian melanjutkan pengembangan Collaborative Filtering.
+Pengujian kualitatif awal juga telah dilakukan pada pendekatan Content-Based Recommendation.
+
+Tahap selanjutnya mencakup pengembangan prediksi pendapatan, klasifikasi popularitas, clustering, dan hybrid recommendation sesuai roadmap proyek.
 
 ## 💡 Catatan
 
-Proyek ini dikembangkan sebagai sarana pembelajaran dan eksplorasi recommendation system.
+Proyek ini dikembangkan sebagai portofolio Machine Learning yang berfokus pada sistem rekomendasi, pemodelan prediktif, dan analisis metadata.
 
-Fokusnya bukan hanya menghasilkan rekomendasi, tetapi juga memahami asumsi, proses, trade-off, keterbatasan, serta alasan pemilihan setiap pendekatan.
+Tujuan utamanya bukan sekadar membangun model, melainkan memahami asumsi, proses evaluasi, keterbatasan, dan alasan di balik pemilihan setiap pendekatan.
 
-Tujuan akhirnya adalah membangun pemahaman bertahap mengenai sistem rekomendasi, machine learning, retrieval, dan ranking.
+Setiap hasil eksperimen akan didokumentasikan berdasarkan implementasi dan evaluasi yang benar-benar dilakukan.
