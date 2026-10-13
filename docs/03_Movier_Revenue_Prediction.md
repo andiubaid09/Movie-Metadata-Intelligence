@@ -272,6 +272,8 @@ MAE sekitar 8.90 juta dan RMSE sekitar 45.65 juta menunjukkan bahwa besarnya kes
 
 ## 9. Feature Importance Random Forest
 
+![Fitur Importances Random Forest](/docs/Top%2010%20Fitur%20Random%20Forest.png)<br>
+
 Sepuluh fitur teratas berdasarkan feature importance yang dilaporkan:
 
 | Fitur | Importance |
@@ -286,8 +288,6 @@ Sepuluh fitur teratas berdasarkan feature importance yang dilaporkan:
 | `Drama` | 0.012098 |
 | `Romance` | 0.010481 |
 | `countries_clean_United States of America` | 0.010240 |
-
-![Fitur Importances Random Forest](/docs/Top%2010%20Fitur%20Random%20Forest.png)<br>
 
 ### Interpretasi
 
@@ -339,7 +339,7 @@ Nilai `max_depth = 50` juga relatif tinggi untuk konfigurasi XGBoost yang lazim 
 | RMSE | 46,544,238.73 |
 | R² | 0.5422 |
 
-![Prediksi vs Aktual XGBoost](/docs/Top%2010%20Fitur%20XGBoost.png)<br>
+![Prediksi vs Aktual XGBoost](/docs/Prediksi%20vs%20Aktual%20XGBoost.png)<br>
 
 ### Analisis
 
