@@ -63,7 +63,7 @@ Dataset memiliki nilai kosong, tipe data yang tidak konsisten, dan beberapa kolo
 |---|---|---|---|
 | 01 | `01_Popularity_Based_Movie_Recommender.ipynb` | Rekomendasi Berbasis Popularitas | ✅ Implementasi selesai |
 | 02 | `02_Content_Based_Movie_Recommender_TFIDF.ipynb` | Content-Based Recommendation dengan TF-IDF | ✅ Implementasi selesai, pengujian kualitatif awal selesai |
-| 03 | `03_Movie_Revenue_Prediction.ipynb` | Prediksi Pendapatan Film | 🚧 Direncanakan |
+| 03 | `03_Movie_Revenue_Prediction.ipynb` | Prediksi Pendapatan Film | ✅ Eksperimen Selesai |
 | 04 | `04_Movie_Popularity_Classification.ipynb` | Klasifikasi Popularitas Film | 🚧 Direncanakan |
 | 05 | `05_Movie_Clustering_and_Segmentation.ipynb` | Clustering dan Segmentasi Film | 🚧 Direncanakan |
 | 06 | `06_Hybrid_Content_Based_Recommendation.ipynb` | Hybrid Content-Based Recommendation | 🚧 Direncanakan |
@@ -96,7 +96,6 @@ Kandidat fitur meliputi:
 - Genre film (`genres`).
 - Bahasa asli (`original_language`).
 - Bulan dan tahun rilis (`release_date`).
-- Durasi film (`runtime`), jika sudah diketahui sebelum rilis.
 - Metadata perusahaan dan negara produksi yang relevan.
 
 Evaluasi menggunakan MAE, RMSE, dan R² dengan mempertimbangkan distribusi pendapatan film yang cenderung tidak merata.
