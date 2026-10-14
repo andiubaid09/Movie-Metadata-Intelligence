@@ -64,9 +64,8 @@ Dataset memiliki nilai kosong, tipe data yang tidak konsisten, dan beberapa kolo
 | 01 | `01_Popularity_Based_Movie_Recommender.ipynb` | Rekomendasi Berbasis Popularitas | ✅ Implementasi selesai |
 | 02 | `02_Content_Based_Movie_Recommender_TFIDF.ipynb` | Content-Based Recommendation dengan TF-IDF | ✅ Implementasi selesai, pengujian kualitatif awal selesai |
 | 03 | `03_Movie_Revenue_Prediction.ipynb` | Prediksi Pendapatan Film | ✅ Eksperimen Selesai |
-| 04 | `04_Movie_Popularity_Classification.ipynb` | Klasifikasi Popularitas Film | 🚧 Direncanakan |
-| 05 | `05_Movie_Clustering_and_Segmentation.ipynb` | Clustering dan Segmentasi Film | 🚧 Direncanakan |
-| 06 | `06_Hybrid_Content_Based_Recommendation.ipynb` | Hybrid Content-Based Recommendation | 🚧 Direncanakan |
+| 04 | `04_Movie_Clustering.ipynb` | Clustering dan Segmentasi Film | ✅ Eksperimen Selesai |
+| 05 | `05_Hybrid_Content_Based_Recommendation.ipynb` | Hybrid Content-Based Recommendation | 🚧 Direncanakan |
 
 Status akan diperbarui sesuai perkembangan implementasi dan hasil eksperimen yang benar-benar telah dilakukan.
 
@@ -102,35 +101,11 @@ Evaluasi menggunakan MAE, RMSE, dan R² dengan mempertimbangkan distribusi penda
 
 Eksperimen juga akan mempertimbangkan transformasi target jika diperlukan dan membedakan metrik pada skala transformasi dengan metrik pada skala pendapatan asli.
 
-### 04. Movie Popularity Classification
-
-Mengembangkan model klasifikasi biner untuk mengategorikan film menjadi dua kelas:
-
-- `0` — Tidak Populer (*Not Popular*).
-- `1` — Populer (*Popular*).
-
-Label dibuat berdasarkan skor `popularity` yang tercatat dalam dataset menggunakan ambang batas yang terdokumentasi, misalnya median dari data training.
-
-Kandidat model meliputi:
-
-- Logistic Regression.
-- Decision Tree Classifier.
-- Random Forest Classifier.
-- HistGradientBoosting Classifier.
-
-Fitur prediktor dibatasi pada informasi yang direncanakan tersedia sebelum film dirilis.
-
-Skor `popularity` digunakan untuk membentuk label target, bukan sebagai fitur input. Informasi lain yang berpotensi baru tersedia setelah rilis, seperti statistik penilaian dan pendapatan aktual, juga tidak digunakan sebagai fitur prediktor dalam skenario ini.
-
-Evaluasi menggunakan accuracy, precision, recall, F1-score, dan confusion matrix.
-
-Kategori popularitas merupakan definisi operasional untuk eksperimen ini, bukan klasifikasi resmi dalam industri film.
-
 ### 05. Movie Clustering and Segmentation
 
 Mengeksplorasi pengelompokan film berdasarkan karakteristik metadata dan representasi fitur yang sesuai.
 
-Metode yang dapat dipertimbangkan meliputi K-Means dan algoritma clustering lainnya sesuai dengan karakteristik data serta kebutuhan komputasi.
+Metode yang dapat dipertimbangkan meliputi K-Means sesuai dengan karakteristik data serta kebutuhan komputasi.
 
 Evaluasi dapat mencakup Silhouette Score, distribusi ukuran cluster, dan analisis kualitatif terhadap film-film dalam setiap kelompok.
 
@@ -151,7 +126,6 @@ Metrik evaluasi dipilih berdasarkan tujuan masing-masing eksperimen.
 | Tugas | Metrik Evaluasi |
 |---|---|
 | Prediksi pendapatan | MAE, RMSE, R² |
-| Klasifikasi popularitas | Accuracy, Precision, Recall, F1-score, Confusion Matrix |
 | Clustering film | Silhouette Score dan analisis kualitatif cluster |
 | Sistem rekomendasi | Precision@K, Recall@K, NDCG@K, atau metrik ranking lain jika informasi relevansi tersedia |
 
@@ -184,17 +158,15 @@ movie-recommendation-metadata-intelligence/
 │   ├── 01_Popularity_Based_Movie_Recommender.ipynb
 │   ├── 02_Content_Based_Movie_Recommender_TFIDF.ipynb
 │   ├── 03_Movie_Revenue_Prediction.ipynb
-│   ├── 04_Movie_Popularity_Classification.ipynb
-│   ├── 05_Movie_Clustering_and_Segmentation.ipynb
-│   └── 06_Hybrid_Content_Based_Recommendation.ipynb
+│   ├── 04_Movie_Clustering.ipynb
+│   └── 05_Hybrid_Content_Based_Recommendation.ipynb
 ├── docs/
 │   ├── 01_popularity_based.md
 │   ├── 02_tfidf_content_based.md
 │   ├── 02_content_based_deep_dive.md
 │   ├── 03_revenue_prediction.md
-│   ├── 04_movie_popularity_classification.md
-│   ├── 05_movie_clustering.md
-│   └── 06_hybrid_recommendation.md
+│   ├── 04_movie_clustering.md
+│   └── 05_hybrid_recommendation.md
 ├── src/
 │   ├── preprocessing.py
 │   ├── recommender.py
