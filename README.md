@@ -65,9 +65,7 @@ Dataset memiliki nilai kosong, tipe data yang tidak konsisten, dan beberapa kolo
 | 02 | `02_Content_Based_Movie_Recommender_TFIDF.ipynb` | Content-Based Recommendation dengan TF-IDF | ✅ Implementasi selesai, pengujian kualitatif awal selesai |
 | 03 | `03_Movie_Revenue_Prediction.ipynb` | Prediksi Pendapatan Film | ✅ Eksperimen Selesai |
 | 04 | `04_Movie_Clustering.ipynb` | Clustering dan Segmentasi Film | ✅ Eksperimen Selesai |
-| 05 | `05_Hybrid_Content_Based_Recommendation.ipynb` | Hybrid Content-Based Recommendation | 🚧 Direncanakan |
-
-Status akan diperbarui sesuai perkembangan implementasi dan hasil eksperimen yang benar-benar telah dilakukan.
+| 05 | `05_Hybrid_Content_Based_Recommendation.ipynb` | Hybrid Content-Based Recommendation | ✅ Eksperimen Selesai  |
 
 ## 🔎 Metodologi
 
@@ -101,7 +99,7 @@ Evaluasi menggunakan MAE, RMSE, dan R² dengan mempertimbangkan distribusi penda
 
 Eksperimen juga akan mempertimbangkan transformasi target jika diperlukan dan membedakan metrik pada skala transformasi dengan metrik pada skala pendapatan asli.
 
-### 05. Movie Clustering and Segmentation
+### 04. Movie Clustering and Segmentation
 
 Mengeksplorasi pengelompokan film berdasarkan karakteristik metadata dan representasi fitur yang sesuai.
 
@@ -111,7 +109,7 @@ Evaluasi dapat mencakup Silhouette Score, distribusi ukuran cluster, dan analisi
 
 Cluster yang dihasilkan akan diperlakukan sebagai kelompok berdasarkan pola data, bukan kategori film yang bersifat mutlak.
 
-### 06. Hybrid Content-Based Recommendation
+### 05. Hybrid Content-Based Recommendation
 
 Mengeksplorasi penggabungan kemiripan konten dengan sinyal tambahan yang berasal dari metadata untuk menghasilkan peringkat rekomendasi.
 
@@ -127,11 +125,8 @@ Metrik evaluasi dipilih berdasarkan tujuan masing-masing eksperimen.
 |---|---|
 | Prediksi pendapatan | MAE, RMSE, R² |
 | Clustering film | Silhouette Score dan analisis kualitatif cluster |
-| Sistem rekomendasi | Precision@K, Recall@K, NDCG@K, atau metrik ranking lain jika informasi relevansi tersedia |
 
 Perbandingan model akan menggunakan pembagian data dan prosedur preprocessing yang konsisten jika sesuai dengan kebutuhan eksperimen.
-
-Hasil kuantitatif tidak akan dicantumkan sebelum eksperimen benar-benar dijalankan.
 
 ## 🛠️ Teknologi yang Digunakan
 
@@ -167,18 +162,15 @@ movie-recommendation-metadata-intelligence/
 │   ├── 03_revenue_prediction.md
 │   ├── 04_movie_clustering.md
 │   └── 05_hybrid_recommendation.md
-├── src/
-│   ├── preprocessing.py
-│   ├── recommender.py
-│   └── evaluation.py
+|
 ├── models/
+|   ├── kmeans.clustering.joblib
+|   ├── model_RFR_revenue.joblib
+|   └── model_XGBR_revenue.joblib
+|
 ├── .gitignore
 └── README.md
 ```
-
-Struktur di atas merupakan struktur yang direncanakan. Folder dan file pendukung akan dibuat seiring dengan perkembangan implementasi.
-
-Dataset asli akan dipertahankan tanpa perubahan. Data hasil preprocessing dan artefak model, jika diperlukan, akan disimpan secara terpisah.
 
 ## ⚠️ Keterbatasan Proyek
 
